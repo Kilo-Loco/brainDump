@@ -71,7 +71,7 @@
                                     <constraint firstAttribute="height" constant="22" id="SKk-p4-AyT"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What's on your mind?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bi7-am-7mW">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This is test text." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bi7-am-7mW">
                                 <rect key="frame" x="20" y="84" width="560" height="496"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -112,6 +112,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="Bi7-am-7mW" id="0Jp-hd-MiQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

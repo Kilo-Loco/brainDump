@@ -8,18 +8,43 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 
+    @IBOutlet weak var textView: UITextView!
+    
+    // MARK: TextView Font Style
+    func placeholderTextInTextView() {
+        self.textView.text = "What's on your mind?"
+        self.textView.textColor = UIColor.lightGrayColor()
+    }
+    func userTextStyle() {
+        self.textView.text = ""
+        self.textView.textColor = UIColor.darkGrayColor()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.textView.delegate = self
+        self.placeholderTextInTextView()
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textView.resignFirstResponder()
+        return true
     }
-
-
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        self.userTextStyle()
+        self.textView.setContentOffset(CGPointMake(0, 250), animated: true)
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        self.textView.setContentOffset(CGPointMake(0, 0), animated: true)
+    }
+    
+    func scrollRangeToVisible
+    
 }
 
