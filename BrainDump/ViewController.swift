@@ -8,18 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
+class ViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var textView: UITextView!
     
+    @IBOutlet weak var accessoryBtmConstraint: NSLayoutConstraint!
+    
+    let CTA = "What's on your mind?"
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
     // MARK: TextView Font Style
     func placeholderTextInTextView() {
-        self.textView.text = "What's on your mind?"
+        self.textView.text = self.CTA
         self.textView.textColor = UIColor.lightGrayColor()
-    }
-    func userTextStyle() {
-        self.textView.text = ""
-        self.textView.textColor = UIColor.darkGrayColor()
     }
     
     override func viewDidLoad() {
@@ -27,24 +31,41 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
         
         self.textView.delegate = self
         self.placeholderTextInTextView()
-        
-    }
 
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textView.resignFirstResponder()
-        return true
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardDidShowNotification, object: nil)
+    }
+    
+    func keyboardWillShow(sender: NSNotification) {
+        if let userInfo = sender.userInfo {
+            if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size.height {
+                self.accessoryBtmConstraint.constant = keyboardHeight
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    self.view.layoutIfNeeded()
+                })
+            }
+        }
     }
     
     func textViewDidBeginEditing(textView: UITextView) {
-        self.userTextStyle()
-        self.textView.setContentOffset(CGPointMake(0, 250), animated: true)
+        self.textView.textColor = UIColor.darkGrayColor()
+        if self.textView.text == self.CTA {
+            self.textView.text = ""
+        }
     }
     
     func textViewDidEndEditing(textView: UITextView) {
-        self.textView.setContentOffset(CGPointMake(0, 0), animated: true)
+        if self.textView.text == "" {
+            self.placeholderTextInTextView()
+        }
+        
+        self.accessoryBtmConstraint.constant = 0
+        UIView.animateWithDuration(0.25) { () -> Void in
+            self.view.layoutIfNeeded()
+        }
     }
     
-    func scrollRangeToVisible
-    
+    @IBAction func doneButton(sender: UIButton) {
+        self.view.endEditing(true)
+    }
 }
 
