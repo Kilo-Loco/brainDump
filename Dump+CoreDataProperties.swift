@@ -14,6 +14,7 @@ import CoreData
 
 extension Dump {
 
+    // Do not midfiy this code
     @NSManaged var note: String?
     @NSManaged var date: NSDate?
     @NSManaged var category: String?

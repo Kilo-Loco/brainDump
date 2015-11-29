@@ -67,5 +67,24 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBAction func doneButton(sender: UIButton) {
         self.view.endEditing(true)
     }
+    
+    @IBAction func addBtnPressed(sender: UIButton) {
+        if self.textView.text != self.CTA && self.textView.text != "" {
+            
+        }
+    }
+    
+    @IBAction func categoriesBtnPressed(sender: UIButton) {
+        performSegueWithIdentifier("VCToCategories", sender: nil)
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "VCToCategories" {
+            if let categoryVC = segue.destinationViewController as? CategoriesVC {
+                
+            }
+        }
+    }
 }
 
