@@ -76,9 +76,22 @@ class ViewController: UIViewController, UITextViewDelegate {
             let context = app.managedObjectContext
             let entity = NSEntityDescription.entityForName("Dump", inManagedObjectContext: context)!
             let dump = Dump(entity: entity, insertIntoManagedObjectContext: context)
+    
             dump.note = note
             dump.date = NSDate()
+            print(dump.note!)
+            print(dump.date!)
             
+            context.insertObject(dump)
+            
+            do {
+                try context.save()
+                print("context was saved!")
+            } catch {
+                print("Could not save dump")
+            }
+            
+            self.textView.text = ""
         }
     }
     
