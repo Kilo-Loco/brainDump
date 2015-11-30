@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController, UITextViewDelegate {
 
@@ -69,22 +70,26 @@ class ViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func addBtnPressed(sender: UIButton) {
-        if self.textView.text != self.CTA && self.textView.text != "" {
+        
+        if let note = self.textView.text where self.textView.text != self.CTA && self.textView.text != "" {
+            let app = UIApplication.sharedApplication().delegate as! AppDelegate
+            let context = app.managedObjectContext
+            let entity = NSEntityDescription.entityForName("Dump", inManagedObjectContext: context)!
+            let dump = Dump(entity: entity, insertIntoManagedObjectContext: context)
+            dump.note = note
+            dump.date = NSDate()
             
         }
+    }
+    
+    // MARK: Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     }
     
     @IBAction func categoriesBtnPressed(sender: UIButton) {
         performSegueWithIdentifier("VCToCategories", sender: nil)
     }
-    
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "VCToCategories" {
-            if let categoryVC = segue.destinationViewController as? CategoriesVC {
-                
-            }
-        }
-    }
+
 }
 

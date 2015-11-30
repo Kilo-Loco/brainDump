@@ -323,6 +323,9 @@
                                                 <exclude reference="obl-Qa-ngY"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="backBtnPressed:" destination="WZQ-H8-FOk" eventType="touchUpInside" id="ZNp-du-5v9"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ea2-WP-LPa">
                                         <rect key="frame" x="556" y="8" width="36" height="28"/>
