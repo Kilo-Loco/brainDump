@@ -25,6 +25,7 @@ class DumpCell: UITableViewCell {
         self.dumpDate.text = NSDateFormatter.localizedStringFromDate(dump.date!, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
         self.dumpCategoryColor.backgroundColor = UIColor.blueColor()
     }
+    
 
 //    override func setSelected(selected: Bool, animated: Bool) {
 //        super.setSelected(selected, animated: animated)

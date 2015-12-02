@@ -17,7 +17,7 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,5 +68,12 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dumps.count
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("CategoriesToVC", sender: nil)
+        let dump = dumps[indexPath.row]
+        print(dump.note)
+    }
+    
     
 }
