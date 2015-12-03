@@ -103,6 +103,6 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBAction func categoriesBtnPressed(sender: UIButton) {
         performSegueWithIdentifier("VCToCategories", sender: nil)
     }
-
+    
 }
 

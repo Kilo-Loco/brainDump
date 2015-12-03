@@ -23,7 +23,7 @@ class DumpCell: UITableViewCell {
         self.dumpTitle.text = dump.note
         self.dumpNote.text = dump.note
         self.dumpDate.text = NSDateFormatter.localizedStringFromDate(dump.date!, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
-        self.dumpCategoryColor.backgroundColor = UIColor.blueColor()
+        self.dumpCategoryColor.backgroundColor = UIColor.clearColor()
     }
     
 
@@ -32,5 +32,6 @@ class DumpCell: UITableViewCell {
 //
 //        // Configure the view for the selected state
 //    }
+    
 
 }

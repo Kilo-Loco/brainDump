@@ -13,6 +13,7 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     @IBOutlet weak var tableView: UITableView!
     var dumps = [Dump]()
+    var selectedDump = Dump()
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
@@ -31,6 +32,7 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
     }
     
     @IBAction func backBtnPressed(sender: UIButton) {
@@ -70,9 +72,9 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("CategoriesToVC", sender: nil)
-        let dump = dumps[indexPath.row]
-        print(dump.note)
+        performSegueWithIdentifier("CategoriesToDump", sender: nil)
+        print(self.dumps[indexPath.row].note)
+        //self.selectedDump = self.dumps[indexPath.row]
     }
     
     
