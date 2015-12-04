@@ -19,5 +19,12 @@ class DumpVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    }
+    
+    @IBAction func backToCategoriesVC(sender: UIButton) {
+        performSegueWithIdentifier("DumpToCategories", sender: nil)
+    }
 
 }
