@@ -9,8 +9,9 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITextViewDelegate {
+class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 
+    @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var textView: UITextView!
     
     @IBOutlet weak var accessoryBtmConstraint: NSLayoutConstraint!
@@ -30,6 +31,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.titleField.delegate = self
         self.textView.delegate = self
         self.placeholderTextInTextView()
 
@@ -45,9 +47,13 @@ class ViewController: UIViewController, UITextViewDelegate {
                 })
             }
         }
+        
+
+        
     }
     
     func textViewDidBeginEditing(textView: UITextView) {
+        self.titleField.frame.size.height = 10
         self.textView.textColor = UIColor.darkGrayColor()
         if self.textView.text == self.CTA {
             self.textView.text = ""
@@ -63,6 +69,8 @@ class ViewController: UIViewController, UITextViewDelegate {
         UIView.animateWithDuration(0.25) { () -> Void in
             self.view.layoutIfNeeded()
         }
+        
+        self.titleField.frame.size.height = 40
     }
     
     @IBAction func doneButton(sender: UIButton) {
