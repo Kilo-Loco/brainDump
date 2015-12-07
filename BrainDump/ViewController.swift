@@ -18,14 +18,9 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
     
     let CTA = "What's on your mind?"
     
+    // MARK: General View Setup
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
-    }
-    
-    // MARK: TextView Font Style
-    func placeholderTextInTextView() {
-        self.textView.text = self.CTA
-        self.textView.textColor = UIColor.lightGrayColor()
     }
     
     override func viewDidLoad() {
@@ -34,10 +29,17 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
         self.titleField.delegate = self
         self.textView.delegate = self
         self.placeholderTextInTextView()
-
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardDidShowNotification, object: nil)
     }
     
+    // MARK: TextView Font Style
+    func placeholderTextInTextView() {
+        self.textView.text = self.CTA
+        self.textView.textColor = UIColor.lightGrayColor()
+    }
+    
+    // MARK: Text Editing
     func keyboardWillShow(sender: NSNotification) {
         if let userInfo = sender.userInfo {
             if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size.height {
@@ -47,17 +49,14 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
                 })
             }
         }
-        
-
-        
     }
     
     func textViewDidBeginEditing(textView: UITextView) {
-        self.titleField.frame.size.height = 10
         self.textView.textColor = UIColor.darkGrayColor()
         if self.textView.text == self.CTA {
             self.textView.text = ""
         }
+        self.view.layoutIfNeeded()
     }
     
     func textViewDidEndEditing(textView: UITextView) {
@@ -69,10 +68,9 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
         UIView.animateWithDuration(0.25) { () -> Void in
             self.view.layoutIfNeeded()
         }
-        
-        self.titleField.frame.size.height = 40
     }
     
+    // MARK: Button Functionality
     @IBAction func doneButton(sender: UIButton) {
         self.view.endEditing(true)
     }
@@ -103,13 +101,12 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
         }
     }
     
-    // MARK: Navigation
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    }
-    
     @IBAction func categoriesBtnPressed(sender: UIButton) {
         performSegueWithIdentifier("VCToCategories", sender: nil)
+    }
+    
+    // MARK: Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     }
     
 }

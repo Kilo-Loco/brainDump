@@ -12,9 +12,11 @@ import CoreData
 class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    
     var dumps = [Dump]()
     var selectedDump = Dump()
     
+    // MARK: General View Setup
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
@@ -24,19 +26,6 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        self.fetchAndSetResult()
-        self.tableView.reloadData()
-    }
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
-    }
-    
-    @IBAction func backBtnPressed(sender: UIButton) {
-        performSegueWithIdentifier("CategoriesToVC", sender: nil)
     }
     
     func fetchAndSetResult() {
@@ -52,6 +41,17 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        self.fetchAndSetResult()
+        self.tableView.reloadData()
+    }
+    
+    // MARK: Button Functionality
+    @IBAction func backBtnPressed(sender: UIButton) {
+        performSegueWithIdentifier("CategoriesToVC", sender: nil)
+    }
+    
+    // MARK: TableView Logic
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCellWithIdentifier("DumpCell") as? DumpCell {
@@ -77,5 +77,8 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         //self.selectedDump = self.dumps[indexPath.row]
     }
     
+    // MARK: Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    }
     
 }

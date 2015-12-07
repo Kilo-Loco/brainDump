@@ -13,7 +13,6 @@ class DumpCell: UITableViewCell {
     @IBOutlet weak var dumpTitle: UILabel!
     @IBOutlet weak var dumpNote: UILabel!
     @IBOutlet weak var dumpDate: UILabel!
-    @IBOutlet weak var dumpCategoryColor: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,15 +22,5 @@ class DumpCell: UITableViewCell {
         self.dumpTitle.text = dump.note
         self.dumpNote.text = dump.note
         self.dumpDate.text = NSDateFormatter.localizedStringFromDate(dump.date!, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
-        self.dumpCategoryColor.backgroundColor = UIColor.clearColor()
     }
-    
-
-//    override func setSelected(selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
-    
-
 }
