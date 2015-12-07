@@ -14,7 +14,7 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     @IBOutlet weak var tableView: UITableView!
     
     var dumps = [Dump]()
-    var selectedDump = Dump()
+    //var selectedCell: Dump?
     
     // MARK: General View Setup
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -72,13 +72,17 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("CategoriesToDump", sender: nil)
-        print(self.dumps[indexPath.row].note)
-        //self.selectedDump = self.dumps[indexPath.row]
+        performSegueWithIdentifier("CategoriesToDump", sender: self)
     }
     
-    // MARK: Navigation
+    //MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "CategoriesToDump" {
+            let dumpVC = segue.destinationViewController as? DumpVC
+            let indexPath = tableView.indexPathForSelectedRow
+            dumpVC?.selectedDump = self.dumps[indexPath!.row]
+            
+        }
     }
     
 }

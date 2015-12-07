@@ -51,11 +51,19 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
         }
     }
     
+    func resetAccessoryConstraint() {
+        self.accessoryBtmConstraint.constant = 0
+        UIView.animateWithDuration(0.25) { () -> Void in
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     func textViewDidBeginEditing(textView: UITextView) {
         self.textView.textColor = UIColor.darkGrayColor()
         if self.textView.text == self.CTA {
             self.textView.text = ""
         }
+        
         self.view.layoutIfNeeded()
     }
     
@@ -64,10 +72,11 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
             self.placeholderTextInTextView()
         }
         
-        self.accessoryBtmConstraint.constant = 0
-        UIView.animateWithDuration(0.25) { () -> Void in
-            self.view.layoutIfNeeded()
-        }
+        self.resetAccessoryConstraint()
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        self.resetAccessoryConstraint()
     }
     
     // MARK: Button Functionality
@@ -104,10 +113,5 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
     @IBAction func categoriesBtnPressed(sender: UIButton) {
         performSegueWithIdentifier("VCToCategories", sender: nil)
     }
-    
-    // MARK: Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    }
-    
 }
 

@@ -9,22 +9,27 @@
 import UIKit
 
 class DumpVC: UIViewController {
+    
+    @IBOutlet weak var dumpTitle: UILabel!
+    @IBOutlet weak var dumpNote: UILabel!
+    
+    var selectedDump: Dump?
 
+    // MARK: General View Setup
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.dumpNote.sizeToFit()
+        self.dumpNote.text = self.selectedDump?.note
 
-        // Do any additional setup after loading the view.
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    }
-    
+
+    // MARK: Button Functionality
     @IBAction func backToCategoriesVC(sender: UIButton) {
         performSegueWithIdentifier("DumpToCategories", sender: nil)
     }
-
 }

@@ -44,7 +44,7 @@
                                             <action selector="categoriesBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i1z-5d-ER6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62i-ag-5rU">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62i-ag-5rU">
                                         <rect key="frame" x="8" y="8" width="30" height="28"/>
                                         <animations/>
                                         <constraints>
@@ -127,7 +127,7 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This is test text." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bi7-am-7mW">
-                                <rect key="frame" x="20" y="106" width="560" height="458"/>
+                                <rect key="frame" x="20" y="107" width="560" height="457"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -158,6 +158,14 @@
                                     </mask>
                                 </variation>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGo-Fy-HkX">
+                                <rect key="frame" x="0.0" y="106" width="600" height="1"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.97254901960784312" green="0.73333333333333328" blue="0.81568627450980391" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="VSD-e2-15m"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iba-wk-lbI">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
@@ -185,6 +193,7 @@
                             <constraint firstItem="TR8-78-u33" firstAttribute="top" secondItem="Iba-wk-lbI" secondAttribute="bottom" id="6in-dK-X0J"/>
                             <constraint firstItem="Bi7-am-7mW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7na-R1-v2U"/>
                             <constraint firstItem="0K8-PS-3fZ" firstAttribute="top" secondItem="TR8-78-u33" secondAttribute="bottom" id="8Hu-fC-KDd"/>
+                            <constraint firstItem="YGo-Fy-HkX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="EPa-jT-ezF"/>
                             <constraint firstItem="TR8-78-u33" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="I5P-he-gr3"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="I9H-QP-Atv" secondAttribute="bottom" id="It8-OT-VFj"/>
                             <constraint firstItem="I9H-QP-Atv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="K1r-XI-Nld"/>
@@ -193,6 +202,7 @@
                             <constraint firstItem="I9H-QP-Atv" firstAttribute="top" secondItem="Bi7-am-7mW" secondAttribute="bottom" id="KzG-GE-mYh"/>
                             <constraint firstItem="Iba-wk-lbI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="L1b-Zj-X00"/>
                             <constraint firstItem="Bi7-am-7mW" firstAttribute="top" secondItem="0K8-PS-3fZ" secondAttribute="bottom" id="QHi-Si-SCK"/>
+                            <constraint firstAttribute="trailing" secondItem="YGo-Fy-HkX" secondAttribute="trailing" id="XxN-KB-I57"/>
                             <constraint firstItem="Bi7-am-7mW" firstAttribute="top" secondItem="TR8-78-u33" secondAttribute="bottom" constant="5" id="Zu5-th-k8Q">
                                 <variation key="heightClass=compact" constant="0.0"/>
                             </constraint>
@@ -203,9 +213,11 @@
                             <constraint firstItem="0K8-PS-3fZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="eyV-Cu-0vZ"/>
                             <constraint firstItem="Iba-wk-lbI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gTB-7W-Rjf"/>
                             <constraint firstItem="0K8-PS-3fZ" firstAttribute="top" secondItem="TR8-78-u33" secondAttribute="bottom" id="hoh-gp-jne"/>
+                            <constraint firstItem="Bi7-am-7mW" firstAttribute="top" secondItem="YGo-Fy-HkX" secondAttribute="bottom" id="jOW-YA-FZy"/>
                             <constraint firstAttribute="trailing" secondItem="I9H-QP-Atv" secondAttribute="trailing" id="jrL-OO-gxn"/>
                             <constraint firstItem="0K8-PS-3fZ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="l8S-dk-5N0"/>
                             <constraint firstAttribute="trailing" secondItem="TR8-78-u33" secondAttribute="trailing" id="oy1-o2-mHg"/>
+                            <constraint firstItem="YGo-Fy-HkX" firstAttribute="top" secondItem="0K8-PS-3fZ" secondAttribute="bottom" id="ppg-nh-hyX"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Bi7-am-7mW" secondAttribute="bottom" constant="20" id="vtF-mD-X1U"/>
                             <constraint firstItem="TR8-78-u33" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yzm-oe-OrN"/>
                         </constraints>
@@ -222,6 +234,7 @@
                                 <exclude reference="K75-CW-Xha"/>
                                 <exclude reference="KcA-Vr-zWu"/>
                                 <exclude reference="hoh-gp-jne"/>
+                                <exclude reference="QHi-Si-SCK"/>
                                 <exclude reference="Zu5-th-k8Q"/>
                                 <exclude reference="dfJ-8C-vwL"/>
                                 <exclude reference="vtF-mD-X1U"/>
@@ -780,6 +793,29 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FCI-kY-bCR">
+                                <rect key="frame" x="0.0" y="66" width="600" height="534"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dump note will display here" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUG-w2-GNK">
+                                        <rect key="frame" x="20" y="7" width="560" height="26"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="26" id="WRF-W0-8sR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="sUG-w2-GNK" secondAttribute="trailing" constant="20" id="J4O-KI-UXs"/>
+                                    <constraint firstItem="sUG-w2-GNK" firstAttribute="centerX" secondItem="FCI-kY-bCR" secondAttribute="centerX" id="LQc-BX-J3l"/>
+                                    <constraint firstAttribute="bottom" secondItem="sUG-w2-GNK" secondAttribute="bottom" constant="20" id="VLR-J0-ozB"/>
+                                    <constraint firstItem="sUG-w2-GNK" firstAttribute="top" secondItem="FCI-kY-bCR" secondAttribute="top" constant="7" id="h1c-WW-MXx"/>
+                                    <constraint firstItem="sUG-w2-GNK" firstAttribute="leading" secondItem="FCI-kY-bCR" secondAttribute="leading" constant="20" id="iWw-aj-tAR"/>
+                                </constraints>
+                            </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zkr-pR-aP5">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
@@ -815,9 +851,13 @@
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="Ujg-i0-oG0" secondAttribute="trailing" id="Gzy-qJ-crq"/>
                             <constraint firstAttribute="trailing" secondItem="Zkr-pR-aP5" secondAttribute="trailing" id="J7I-Ma-TiJ"/>
+                            <constraint firstItem="FCI-kY-bCR" firstAttribute="top" secondItem="Ujg-i0-oG0" secondAttribute="bottom" id="Qc8-at-5PG"/>
+                            <constraint firstItem="FCI-kY-bCR" firstAttribute="trailing" secondItem="Ujg-i0-oG0" secondAttribute="trailing" id="Z6p-Jr-din"/>
                             <constraint firstAttribute="trailing" secondItem="Ujg-i0-oG0" secondAttribute="trailing" id="aEU-Gj-nSp"/>
                             <constraint firstItem="Zkr-pR-aP5" firstAttribute="top" secondItem="HSk-Dz-X6C" secondAttribute="top" id="n0k-w6-cM7"/>
+                            <constraint firstItem="FCI-kY-bCR" firstAttribute="bottom" secondItem="Ig5-o9-ALh" secondAttribute="top" id="qyF-J7-cgZ"/>
                             <constraint firstItem="Zkr-pR-aP5" firstAttribute="leading" secondItem="HSk-Dz-X6C" secondAttribute="leading" id="r9W-my-Sxy"/>
+                            <constraint firstItem="FCI-kY-bCR" firstAttribute="leading" secondItem="Ujg-i0-oG0" secondAttribute="leading" id="rin-CJ-7lm"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -852,6 +892,8 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="dumpNote" destination="sUG-w2-GNK" id="JkU-OJ-CxW"/>
+                        <outlet property="dumpTitle" destination="yWI-Qg-KB1" id="c27-nh-ENj"/>
                         <segue destination="WZQ-H8-FOk" kind="presentation" identifier="DumpToCategories" modalTransitionStyle="crossDissolve" id="Jp9-CG-JdZ"/>
                     </connections>
                 </viewController>
