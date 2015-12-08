@@ -89,7 +89,6 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
             } catch {
                 print("could not remove")
             }
-            
         }
     }
     
