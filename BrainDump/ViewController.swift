@@ -92,10 +92,17 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
             let entity = NSEntityDescription.entityForName("Dump", inManagedObjectContext: context)!
             let dump = Dump(entity: entity, insertIntoManagedObjectContext: context)
     
+            if let title = self.titleField.text where self.titleField.text != "" {
+                dump.title = title
+            } else {
+                dump.title = "Untitled"
+            }
             dump.note = note
             dump.date = NSDate()
+            print(dump.title!)
             print(dump.note!)
             print(dump.date!)
+            
             
             context.insertObject(dump)
             
@@ -106,6 +113,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
                 print("Could not save dump")
             }
             
+            self.titleField.text = ""
             self.textView.text = ""
         }
     }

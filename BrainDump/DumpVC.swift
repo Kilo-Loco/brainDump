@@ -23,6 +23,7 @@ class DumpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.dumpTitle.text = self.selectedDump?.title
         self.dumpNote.sizeToFit()
         self.dumpNote.text = self.selectedDump?.note
 

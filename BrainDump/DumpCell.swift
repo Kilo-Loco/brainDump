@@ -19,7 +19,8 @@ class DumpCell: UITableViewCell {
     }
     
     func configureCell(dump: Dump) {
-        self.dumpTitle.text = dump.note
+        
+        self.dumpTitle.text = dump.title
         self.dumpNote.text = dump.note
         self.dumpDate.text = NSDateFormatter.localizedStringFromDate(dump.date!, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
     }

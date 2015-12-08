@@ -75,6 +75,24 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         performSegueWithIdentifier("CategoriesToDump", sender: self)
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            self.dumps.removeAtIndex(indexPath.row)
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            
+            let app = UIApplication.sharedApplication().delegate as! AppDelegate
+            let context = app.managedObjectContext
+            context.deleteObject(dumps[indexPath.row] as NSManagedObject)
+            do {
+                try context.save()
+                print("successfully removed")
+            } catch {
+                print("could not remove")
+            }
+            
+        }
+    }
+    
     //MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "CategoriesToDump" {
