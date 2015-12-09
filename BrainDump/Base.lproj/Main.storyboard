@@ -100,7 +100,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="doneButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="osH-jX-t7T"/>
+                                            <action selector="hideButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0K3-tr-NCt"/>
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6d-GF-ghj">
@@ -146,7 +146,7 @@
                                 </constraints>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="24"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="4Tc-2m-gYD"/>
@@ -269,6 +269,7 @@
                     </view>
                     <connections>
                         <outlet property="accessoryBtmConstraint" destination="It8-OT-VFj" id="sP3-wb-IVB"/>
+                        <outlet property="hideBtnText" destination="gsU-HV-xwp" id="auG-0e-cy4"/>
                         <outlet property="textView" destination="Bi7-am-7mW" id="0Jp-hd-MiQ"/>
                         <outlet property="titleField" destination="0K8-PS-3fZ" id="6gz-NP-97O"/>
                         <segue destination="WZQ-H8-FOk" kind="presentation" identifier="VCToCategories" modalTransitionStyle="crossDissolve" id="Kcm-Bx-t3B"/>

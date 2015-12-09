@@ -26,7 +26,6 @@ class DumpVC: UIViewController {
         self.dumpTitle.text = self.selectedDump?.title
         self.dumpNote.sizeToFit()
         self.dumpNote.text = self.selectedDump?.note
-
     }
 
     // MARK: Button Functionality

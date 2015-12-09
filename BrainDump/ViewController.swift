@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var hideBtnText: UIButton!
     
     @IBOutlet weak var accessoryBtmConstraint: NSLayoutConstraint!
     
@@ -29,6 +30,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
         self.titleField.delegate = self
         self.textView.delegate = self
         self.placeholderTextInTextView()
+        self.hideBtnText.hidden = true
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardDidShowNotification, object: nil)
     }
@@ -47,6 +49,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
                 UIView.animateWithDuration(0.25, animations: { () -> Void in
                     self.view.layoutIfNeeded()
                 })
+                self.hideBtnText.hidden = false
             }
         }
     }
@@ -56,6 +59,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
         UIView.animateWithDuration(0.25) { () -> Void in
             self.view.layoutIfNeeded()
         }
+        self.hideBtnText.hidden = true
     }
     
     func textViewDidBeginEditing(textView: UITextView) {
@@ -80,8 +84,9 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
     }
     
     // MARK: Button Functionality
-    @IBAction func doneButton(sender: UIButton) {
+    @IBAction func hideButton(sender: UIButton) {
         self.view.endEditing(true)
+        
     }
     
     @IBAction func addBtnPressed(sender: UIButton) {
@@ -97,12 +102,12 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
             } else {
                 dump.title = "Untitled"
             }
+            
             dump.note = note
             dump.date = NSDate()
             print(dump.title!)
             print(dump.note!)
             print(dump.date!)
-            
             
             context.insertObject(dump)
             

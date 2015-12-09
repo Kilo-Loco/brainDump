@@ -103,13 +103,6 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
                 self.removeAndSave(context)
                 self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             }
-
-//            do {
-//                try context.save()
-//                print("successfully removed: \(self.dumps[indexPath.row])")
-//            } catch {
-//                print("could not remove: \(self.dumps[indexPath.row])")
-//            }
         }
     }
     
