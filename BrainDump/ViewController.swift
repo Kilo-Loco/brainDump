@@ -98,6 +98,22 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
             let dump = Dump(entity: entity, insertIntoManagedObjectContext: context)
     
             if let title = self.titleField.text where self.titleField.text != "" {
+                
+                guard title.characters.count <= 30 else {
+                    
+                    let alertTitle = "Title is too long"
+                    let alertMessage = "Your title is \(title.characters.count) characters long. Please enter a title that is less than 31 characters long."
+                    let alertController: UIAlertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .Alert)
+                    let alertAction: UIAlertAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+                    alertController.addAction(alertAction)
+                    
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                    
+                    print("title too long")
+                    
+                    return
+                }
+                
                 dump.title = title
             } else {
                 dump.title = "Untitled"

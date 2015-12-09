@@ -679,31 +679,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ujg-i0-oG0">
                                 <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title of Dump" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWI-Qg-KB1">
-                                        <rect key="frame" x="226" y="8" width="149" height="28"/>
-                                        <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="1iK-kX-4bw"/>
-                                            <constraint firstAttribute="height" constant="28" id="AV9-Mr-9ut"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="149" id="djM-Nk-2Cw"/>
-                                            <constraint firstAttribute="width" constant="149" id="l6N-vD-Q65"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="1iK-kX-4bw"/>
-                                                <exclude reference="djM-Nk-2Cw"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="1iK-kX-4bw"/>
-                                                <include reference="djM-Nk-2Cw"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69x-4U-xeg">
                                         <rect key="frame" x="8" y="8" width="42" height="28"/>
                                         <animations/>
@@ -752,6 +727,31 @@
                                         </constraints>
                                         <state key="normal" image="settingsIcon"/>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title of Dump" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yWI-Qg-KB1">
+                                        <rect key="frame" x="188" y="8" width="225" height="28"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="1iK-kX-4bw"/>
+                                            <constraint firstAttribute="height" constant="28" id="AV9-Mr-9ut"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="149" id="djM-Nk-2Cw"/>
+                                            <constraint firstAttribute="width" constant="225" id="l6N-vD-Q65"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="1iK-kX-4bw"/>
+                                                <exclude reference="djM-Nk-2Cw"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="1iK-kX-4bw"/>
+                                                <include reference="djM-Nk-2Cw"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.1176470588" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -909,6 +909,6 @@
         <image name="settingsIcon" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kcm-Bx-t3B"/>
+        <segue reference="Jp9-CG-JdZ"/>
     </inferredMetricsTieBreakers>
 </document>
