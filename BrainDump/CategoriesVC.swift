@@ -73,22 +73,43 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("CategoriesToDump", sender: self)
+        print(dumps.count)
+    }
+    
+    func removeAndSave(context: NSManagedObjectContext) {
+        do {
+            try context.save()
+            print("successfully removed)")
+        } catch {
+            print("could not remove")
+        }
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
-            self.dumps.removeAtIndex(indexPath.row)
-            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             
             let app = UIApplication.sharedApplication().delegate as! AppDelegate
             let context = app.managedObjectContext
-            context.deleteObject(dumps[indexPath.row] as NSManagedObject)
-            do {
-                try context.save()
-                print("successfully removed")
-            } catch {
-                print("could not remove")
+
+            print(self.dumps[indexPath.row] as NSManagedObject)
+            context.deleteObject(self.dumps[indexPath.row] as NSManagedObject)
+            
+            if self.dumps[indexPath.row] == self.dumps.last {
+                self.dumps.removeLast()
+                self.removeAndSave(context)
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+            } else {
+                self.dumps.removeAtIndex(indexPath.row)
+                self.removeAndSave(context)
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             }
+
+//            do {
+//                try context.save()
+//                print("successfully removed: \(self.dumps[indexPath.row])")
+//            } catch {
+//                print("could not remove: \(self.dumps[indexPath.row])")
+//            }
         }
     }
     
