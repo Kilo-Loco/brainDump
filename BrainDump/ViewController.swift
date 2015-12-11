@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var hideBtnText: UIButton!
+    @IBOutlet weak var savedLabel: UILabel!
     
     @IBOutlet weak var accessoryBtmConstraint: NSLayoutConstraint!
     
@@ -31,6 +32,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
         self.textView.delegate = self
         self.placeholderTextInTextView()
         self.hideBtnText.hidden = true
+        self.savedLabel.alpha = 0
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardDidShowNotification, object: nil)
     }
@@ -129,6 +131,10 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
             
             do {
                 try context.save()
+                self.savedLabel.alpha = 1.0
+                UIView.animateWithDuration(2.5, animations: { () -> Void in
+                    self.savedLabel.alpha = 0
+                })
                 print("context was saved!")
             } catch {
                 print("Could not save dump")
