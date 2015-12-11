@@ -718,14 +718,17 @@
                                             <action selector="backToCategoriesVC:" destination="vFE-bj-JfL" eventType="touchUpInside" id="eYE-ST-Vju"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOx-J2-Sn3">
-                                        <rect key="frame" x="556" y="8" width="36" height="28"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOx-J2-Sn3">
+                                        <rect key="frame" x="552" y="8" width="40" height="28"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="36" id="cXF-tf-mub"/>
+                                            <constraint firstAttribute="width" constant="40" id="cXF-tf-mub"/>
                                             <constraint firstAttribute="height" constant="28" id="lXY-MM-puF"/>
                                         </constraints>
-                                        <state key="normal" image="settingsIcon"/>
+                                        <state key="normal" title="Edit"/>
+                                        <connections>
+                                            <action selector="editSaveBtnPressed:" destination="vFE-bj-JfL" eventType="touchUpInside" id="7oM-Qy-bhc"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title of Dump" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yWI-Qg-KB1">
                                         <rect key="frame" x="188" y="8" width="225" height="28"/>
@@ -838,6 +841,24 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Editable Title Here" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vLM-2a-2PH">
+                                <rect key="frame" x="20" y="74" width="560" height="40"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="SBa-zO-qDf"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Editable note here." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c5S-8V-vqX">
+                                <rect key="frame" x="20" y="122" width="560" height="470"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -847,18 +868,25 @@
                             </constraint>
                             <constraint firstItem="Ujg-i0-oG0" firstAttribute="leading" secondItem="HSk-Dz-X6C" secondAttribute="leading" id="2f4-NG-ofr"/>
                             <constraint firstItem="Ujg-i0-oG0" firstAttribute="leading" secondItem="HSk-Dz-X6C" secondAttribute="leading" id="3oz-Ju-KXa"/>
+                            <constraint firstItem="c5S-8V-vqX" firstAttribute="leading" secondItem="HSk-Dz-X6C" secondAttribute="leadingMargin" id="6vq-wC-aR4"/>
+                            <constraint firstItem="Ig5-o9-ALh" firstAttribute="top" secondItem="c5S-8V-vqX" secondAttribute="bottom" constant="8" id="CPh-bG-8oF"/>
                             <constraint firstItem="Ujg-i0-oG0" firstAttribute="top" secondItem="zOc-pU-Yri" secondAttribute="bottom" constant="22" id="Czl-kZ-pvk">
                                 <variation key="heightClass=regular" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="Ujg-i0-oG0" secondAttribute="trailing" id="Gzy-qJ-crq"/>
+                            <constraint firstItem="c5S-8V-vqX" firstAttribute="top" secondItem="vLM-2a-2PH" secondAttribute="bottom" constant="8" id="HJl-5d-aHP"/>
                             <constraint firstAttribute="trailing" secondItem="Zkr-pR-aP5" secondAttribute="trailing" id="J7I-Ma-TiJ"/>
                             <constraint firstItem="FCI-kY-bCR" firstAttribute="top" secondItem="Ujg-i0-oG0" secondAttribute="bottom" id="Qc8-at-5PG"/>
+                            <constraint firstItem="vLM-2a-2PH" firstAttribute="leading" secondItem="HSk-Dz-X6C" secondAttribute="leadingMargin" id="Sly-xb-t7h"/>
                             <constraint firstItem="FCI-kY-bCR" firstAttribute="trailing" secondItem="Ujg-i0-oG0" secondAttribute="trailing" id="Z6p-Jr-din"/>
                             <constraint firstAttribute="trailing" secondItem="Ujg-i0-oG0" secondAttribute="trailing" id="aEU-Gj-nSp"/>
+                            <constraint firstItem="c5S-8V-vqX" firstAttribute="trailing" secondItem="HSk-Dz-X6C" secondAttribute="trailingMargin" id="ct4-gn-kzN"/>
                             <constraint firstItem="Zkr-pR-aP5" firstAttribute="top" secondItem="HSk-Dz-X6C" secondAttribute="top" id="n0k-w6-cM7"/>
+                            <constraint firstItem="vLM-2a-2PH" firstAttribute="trailing" secondItem="HSk-Dz-X6C" secondAttribute="trailingMargin" id="qLk-Mo-edb"/>
                             <constraint firstItem="FCI-kY-bCR" firstAttribute="bottom" secondItem="Ig5-o9-ALh" secondAttribute="top" id="qyF-J7-cgZ"/>
                             <constraint firstItem="Zkr-pR-aP5" firstAttribute="leading" secondItem="HSk-Dz-X6C" secondAttribute="leading" id="r9W-my-Sxy"/>
                             <constraint firstItem="FCI-kY-bCR" firstAttribute="leading" secondItem="Ujg-i0-oG0" secondAttribute="leading" id="rin-CJ-7lm"/>
+                            <constraint firstItem="vLM-2a-2PH" firstAttribute="top" secondItem="Ujg-i0-oG0" secondAttribute="bottom" constant="8" id="zZf-xl-TvH"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -895,6 +923,10 @@
                     <connections>
                         <outlet property="dumpNote" destination="sUG-w2-GNK" id="JkU-OJ-CxW"/>
                         <outlet property="dumpTitle" destination="yWI-Qg-KB1" id="c27-nh-ENj"/>
+                        <outlet property="editNoteBtmConstraint" destination="CPh-bG-8oF" id="C0E-03-818"/>
+                        <outlet property="editSaveBtnText" destination="GOx-J2-Sn3" id="h1w-cR-zVA"/>
+                        <outlet property="editableDumpNote" destination="c5S-8V-vqX" id="Cvl-e0-k1O"/>
+                        <outlet property="editableDumpTitle" destination="vLM-2a-2PH" id="lkE-ns-IUT"/>
                         <segue destination="WZQ-H8-FOk" kind="presentation" identifier="DumpToCategories" modalTransitionStyle="crossDissolve" id="Jp9-CG-JdZ"/>
                     </connections>
                 </viewController>
