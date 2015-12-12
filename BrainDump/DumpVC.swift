@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class DumpVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
@@ -77,6 +78,29 @@ class DumpVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
             self.dumpTitle.text = self.editableDumpTitle.text
             self.dumpNote.text = self.editableDumpNote.text
             
+            let app = UIApplication.sharedApplication().delegate as! AppDelegate
+            let context = app.managedObjectContext
+            
+            if self.selectedDump == nil {
+                let dumpDescription = NSEntityDescription.entityForName("Dump", inManagedObjectContext: context)
+                
+                self.selectedDump = Dump(entity: dumpDescription!, insertIntoManagedObjectContext: context)
+            }
+            
+            if self.selectedDump != nil {
+                self.selectedDump?.title = self.editableDumpTitle.text
+                self.selectedDump?.note = self.editableDumpNote.text
+                self.selectedDump?.date = NSDate()
+                
+            }
+            
+            do {
+                try context.save()
+                print("context was saved!")
+            } catch {
+                print("Could not save dump")
+            }
+            
             return
         }
         
@@ -90,5 +114,9 @@ class DumpVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         self.editableDumpTitle.text = self.dumpTitle.text
         self.editableDumpNote.text = self.dumpNote.text
         self.dumpTitle.text = "Edit Mode"
+        
+        print(self.selectedDump?.title)
+        
+        
     }
 }
