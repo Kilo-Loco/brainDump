@@ -16,6 +16,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
     @IBOutlet weak var hideBtnText: UIButton!
     @IBOutlet weak var savedLabel: UILabel!
     
+    @IBOutlet weak var titleFieldTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var accessoryBtmConstraint: NSLayoutConstraint!
     
     let CTA = "What's on your mind?"
@@ -35,6 +36,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
         self.savedLabel.alpha = 0
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardDidShowNotification, object: nil)
+        
     }
     
     // MARK: TextView Font Style
@@ -56,6 +58,18 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
         }
     }
     
+    func orientationChange() {
+        if UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) {
+            self.titleField.hidden = true
+            self.titleFieldTopConstraint.constant = -40
+        }
+        
+        if UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation) {
+            self.titleField.hidden = false
+            self.titleFieldTopConstraint.constant = 0
+        }
+    }
+    
     func resetAccessoryConstraint() {
         self.accessoryBtmConstraint.constant = 0
         UIView.animateWithDuration(0.25) { () -> Void in
@@ -69,9 +83,17 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
         if self.textView.text == self.CTA {
             self.textView.text = ""
         }
+    
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationChange", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        
+        if UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) {
+            self.titleField.hidden = true
+            self.titleFieldTopConstraint.constant = -40
+        }
         
         self.view.layoutIfNeeded()
     }
+
     
     func textViewDidEndEditing(textView: UITextView) {
         if self.textView.text == "" {
@@ -79,6 +101,9 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
         }
         
         self.resetAccessoryConstraint()
+        
+        self.titleField.hidden = false
+        self.titleFieldTopConstraint.constant = 0
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
