@@ -14,7 +14,7 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     @IBOutlet weak var tableView: UITableView!
     
     var dumps = [Dump]()
-    //var selectedCell: Dump?
+    var selectedRow: Int?
     
     // MARK: General View Setup
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -26,6 +26,8 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        print(self.selectedRow)
     }
     
     func fetchAndSetResult() {
@@ -73,7 +75,8 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("CategoriesToDump", sender: self)
-        print(dumps.count)
+        self.selectedRow = indexPath.row
+        print(indexPath.row)
     }
     
     func removeAndSave(context: NSManagedObjectContext) {
@@ -104,6 +107,10 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
                 self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             }
         }
+    }
+    
+    func scrollToRowAtIndexPath(indexPath: NSIndexPath, atScrollPosition scrollPosition: UITableViewScrollPosition, animated: Bool) {
+        
     }
     
     //MARK: Navigation
