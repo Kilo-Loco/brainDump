@@ -14,21 +14,33 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     @IBOutlet weak var tableView: UITableView!
     
     var dumps = [Dump]()
-    var selectedRow: Int?
+    var deselectedRow: NSIndexPath?
     
     // MARK: General View Setup
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        
         return UIStatusBarStyle.LightContent
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        print(self.selectedRow)
+        if self.deselectedRow != nil {
+            
+            let delay = 0.5 * Double(NSEC_PER_SEC)
+            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            
+            dispatch_after(time, dispatch_get_main_queue(), {
+                self.tableView.scrollToRowAtIndexPath(self.deselectedRow!, atScrollPosition: UITableViewScrollPosition.Middle, animated: false)
+            })
+        }
     }
+    
+    
     
     func fetchAndSetResult() {
         let app = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -45,11 +57,13 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     override func viewDidAppear(animated: Bool) {
         self.fetchAndSetResult()
+        
         self.tableView.reloadData()
     }
     
     // MARK: Button Functionality
     @IBAction func backBtnPressed(sender: UIButton) {
+        
         performSegueWithIdentifier("CategoriesToVC", sender: nil)
     }
     
@@ -61,25 +75,28 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
             cell.configureCell(dump)
             return cell
         } else {
+            
             return DumpCell()
         }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return self.dumps.count
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
         performSegueWithIdentifier("CategoriesToDump", sender: self)
-        self.selectedRow = indexPath.row
-        print(indexPath.row)
     }
     
     func removeAndSave(context: NSManagedObjectContext) {
+        
         do {
             try context.save()
             print("successfully removed)")
@@ -89,6 +106,7 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
         if editingStyle == UITableViewCellEditingStyle.Delete {
             
             let app = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -98,10 +116,12 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
             context.deleteObject(self.dumps[indexPath.row] as NSManagedObject)
             
             if self.dumps[indexPath.row] == self.dumps.last {
+                
                 self.dumps.removeLast()
                 self.removeAndSave(context)
                 self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
             } else {
+                
                 self.dumps.removeAtIndex(indexPath.row)
                 self.removeAndSave(context)
                 self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
@@ -109,18 +129,14 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         }
     }
     
-    func scrollToRowAtIndexPath(indexPath: NSIndexPath, atScrollPosition scrollPosition: UITableViewScrollPosition, animated: Bool) {
-        
-    }
-    
     //MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         if segue.identifier == "CategoriesToDump" {
             let dumpVC = segue.destinationViewController as? DumpVC
-            let indexPath = tableView.indexPathForSelectedRow
+            let indexPath = self.tableView.indexPathForSelectedRow
             dumpVC?.selectedDump = self.dumps[indexPath!.row]
-            
+            dumpVC?.selectedRow = indexPath
         }
     }
-    
 }

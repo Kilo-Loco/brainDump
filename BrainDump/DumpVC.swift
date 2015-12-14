@@ -19,14 +19,17 @@ class DumpVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var editNoteBtmConstraint: NSLayoutConstraint!
     
     var selectedDump: Dump?
+    var selectedRow: NSIndexPath?
     var editModeEnabled = false
 
     // MARK: General View Setup
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        
         return UIStatusBarStyle.LightContent
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         self.dumpTitle.text = self.selectedDump?.title
@@ -39,7 +42,13 @@ class DumpVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardDidShowNotification, object: nil)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        
+        print("Selected row is: \(self.selectedRow)")
+    }
+    
     func keyboardWillShow(sender: NSNotification) {
+        
         if let userInfo = sender.userInfo {
             if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size.height {
                 self.editNoteBtmConstraint.constant = keyboardHeight
@@ -51,6 +60,7 @@ class DumpVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     }
     
     func resetEditNoteBtmConstraint() {
+        
         self.editNoteBtmConstraint.constant = 8
         UIView.animateWithDuration(0.25) { () -> Void in
             self.view.layoutIfNeeded()
@@ -58,15 +68,18 @@ class DumpVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     }
     
     func textViewDidEndEditing(textView: UITextView) {
+        
         self.resetEditNoteBtmConstraint()
     }
     
     // MARK: Button Functionality
     @IBAction func backToCategoriesVC(sender: UIButton) {
+        
         performSegueWithIdentifier("DumpToCategories", sender: nil)
     }
     
     @IBAction func editSaveBtnPressed(sender: UIButton) {
+        
         guard self.editModeEnabled == false else {
             self.editModeEnabled = false
             self.view.backgroundColor = UIColor.whiteColor()
@@ -82,22 +95,25 @@ class DumpVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
             let context = app.managedObjectContext
             
             if self.selectedDump == nil {
+                
                 let dumpDescription = NSEntityDescription.entityForName("Dump", inManagedObjectContext: context)
                 
                 self.selectedDump = Dump(entity: dumpDescription!, insertIntoManagedObjectContext: context)
             }
             
             if self.selectedDump != nil {
+                
                 self.selectedDump?.title = self.editableDumpTitle.text
                 self.selectedDump?.note = self.editableDumpNote.text
                 self.selectedDump?.date = NSDate()
-                
             }
             
             do {
+                
                 try context.save()
                 print("context was saved!")
             } catch {
+                
                 print("Could not save dump")
             }
             
@@ -116,7 +132,12 @@ class DumpVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         self.dumpTitle.text = "Edit Mode"
         
         print(self.selectedDump?.title)
+    }
+    
+    // MARK: Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        
+        let categoriesVC = segue.destinationViewController as? CategoriesVC
+        categoriesVC?.deselectedRow = self.selectedRow
     }
 }

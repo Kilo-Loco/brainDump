@@ -23,10 +23,12 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
     
     // MARK: General View Setup
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        
         return UIStatusBarStyle.LightContent
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         self.titleField.delegate = self
@@ -36,19 +38,22 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
         self.savedLabel.alpha = 0
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardDidShowNotification, object: nil)
-        
     }
     
     // MARK: TextView Font Style
     func placeholderTextInTextView() {
+        
         self.textView.text = self.CTA
         self.textView.textColor = UIColor.lightGrayColor()
     }
     
     // MARK: Text Editing
     func keyboardWillShow(sender: NSNotification) {
+        
         if let userInfo = sender.userInfo {
+            
             if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size.height {
+                
                 self.accessoryBtmConstraint.constant = keyboardHeight
                 UIView.animateWithDuration(0.25, animations: { () -> Void in
                     self.view.layoutIfNeeded()
@@ -59,18 +64,22 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
     }
     
     func orientationChange() {
+        
         if UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) {
+            
             self.titleField.hidden = true
             self.titleFieldTopConstraint.constant = -40
         }
         
         if UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation) {
+            
             self.titleField.hidden = false
             self.titleFieldTopConstraint.constant = 0
         }
     }
     
     func resetAccessoryConstraint() {
+        
         self.accessoryBtmConstraint.constant = 0
         UIView.animateWithDuration(0.25) { () -> Void in
             self.view.layoutIfNeeded()
@@ -79,14 +88,17 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
     }
     
     func textViewDidBeginEditing(textView: UITextView) {
+        
         self.textView.textColor = UIColor.darkGrayColor()
         if self.textView.text == self.CTA {
+            
             self.textView.text = ""
         }
     
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationChange", name: UIDeviceOrientationDidChangeNotification, object: nil)
         
         if UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) {
+            
             self.titleField.hidden = true
             self.titleFieldTopConstraint.constant = -40
         }
@@ -96,6 +108,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
 
     
     func textViewDidEndEditing(textView: UITextView) {
+        
         if self.textView.text == "" {
             self.placeholderTextInTextView()
         }
@@ -107,18 +120,20 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
+        
         self.resetAccessoryConstraint()
     }
     
     // MARK: Button Functionality
     @IBAction func hideButton(sender: UIButton) {
-        self.view.endEditing(true)
         
+        self.view.endEditing(true)
     }
     
     @IBAction func addBtnPressed(sender: UIButton) {
         
         if let note = self.textView.text where self.textView.text != self.CTA && self.textView.text != "" {
+            
             let app = UIApplication.sharedApplication().delegate as! AppDelegate
             let context = app.managedObjectContext
             let entity = NSEntityDescription.entityForName("Dump", inManagedObjectContext: context)!
@@ -155,6 +170,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
             context.insertObject(dump)
             
             do {
+                
                 try context.save()
                 self.savedLabel.alpha = 1.0
                 UIView.animateWithDuration(2.5, animations: { () -> Void in
@@ -162,6 +178,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
                 })
                 print("context was saved!")
             } catch {
+                
                 print("Could not save dump")
             }
             
@@ -171,6 +188,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
     }
     
     @IBAction func categoriesBtnPressed(sender: UIButton) {
+        
         performSegueWithIdentifier("VCToCategories", sender: nil)
     }
 }
