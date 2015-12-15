@@ -95,7 +95,9 @@ class DumpVC: VCCommons, UITextFieldDelegate, UITextViewDelegate {
     func keyboardWillShow(sender: NSNotification) {
         
         if let userInfo = sender.userInfo {
+            
             if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size.height {
+                
                 self.editNoteBtmConstraint.constant = (keyboardHeight + CGFloat(8))
                 UIView.animateWithDuration(0.25, animations: { () -> Void in
                     self.view.layoutIfNeeded()
@@ -123,9 +125,12 @@ class DumpVC: VCCommons, UITextFieldDelegate, UITextViewDelegate {
     // MARK: Button Functionality
     
     @IBAction func backToCategoriesVC(sender: UIButton) {
+        
         if self.editModeEnabled == false {
+            
             performSegueWithIdentifier("DumpToCategories", sender: nil)
         } else {
+            
             self.toggleEditModeView()
         }
     }
