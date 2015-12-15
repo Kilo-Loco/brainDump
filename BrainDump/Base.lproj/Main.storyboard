@@ -933,6 +933,7 @@
                             <constraint firstItem="Ujg-i0-oG0" firstAttribute="top" secondItem="zOc-pU-Yri" secondAttribute="bottom" constant="22" id="Czl-kZ-pvk">
                                 <variation key="heightClass=regular" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="Ig5-o9-ALh" firstAttribute="top" secondItem="c5S-8V-vqX" secondAttribute="bottom" constant="8" id="GkU-Q5-bBI"/>
                             <constraint firstAttribute="trailing" secondItem="Ujg-i0-oG0" secondAttribute="trailing" id="Gzy-qJ-crq"/>
                             <constraint firstItem="c5S-8V-vqX" firstAttribute="top" secondItem="vLM-2a-2PH" secondAttribute="bottom" constant="8" id="HJl-5d-aHP"/>
                             <constraint firstAttribute="trailing" secondItem="Zkr-pR-aP5" secondAttribute="trailing" id="J7I-Ma-TiJ"/>
@@ -971,6 +972,7 @@
                                 <exclude reference="12A-rk-aoD"/>
                                 <exclude reference="1Ul-ch-ghM"/>
                                 <exclude reference="sYk-fH-bdh"/>
+                                <exclude reference="GkU-Q5-bBI"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -993,6 +995,7 @@
                                 <exclude reference="ct4-gn-kzN"/>
                                 <include reference="sYk-fH-bdh"/>
                                 <exclude reference="CPh-bG-8oF"/>
+                                <include reference="GkU-Q5-bBI"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">

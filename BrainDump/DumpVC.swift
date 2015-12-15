@@ -53,6 +53,8 @@ class DumpVC: VCCommons, UITextFieldDelegate, UITextViewDelegate {
             self.view.endEditing(true)
             self.editNoteBtmConstraint.constant = 8
             self.editModeEnabled = false
+            
+             NSNotificationCenter.defaultCenter().removeObserver(self)
         } else {
             
             self.view.backgroundColor = UIColor.lightGrayColor()
@@ -77,7 +79,7 @@ class DumpVC: VCCommons, UITextFieldDelegate, UITextViewDelegate {
 
     func orientationChange() {
         
-        if UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) {
+        if UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) && self.editModeEnabled {
             
             self.editableDumpTitle.hidden = true
             self.editableTitleTopConstraint.constant = -40
@@ -116,7 +118,6 @@ class DumpVC: VCCommons, UITextFieldDelegate, UITextViewDelegate {
     func textViewDidEndEditing(textView: UITextView) {
         
         self.resetEditNoteBtmConstraint()
-        
     }
     
     // MARK: Button Functionality
