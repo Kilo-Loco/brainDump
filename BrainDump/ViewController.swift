@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
+class ViewController: VCCommons, UITextViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var textView: UITextView!
@@ -19,13 +19,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
     @IBOutlet weak var titleFieldTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var accessoryBtmConstraint: NSLayoutConstraint!
     
-    let CTA = "What's on your mind?"
-    
     // MARK: General View Setup
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        
-        return UIStatusBarStyle.LightContent
-    }
     
     override func viewDidLoad() {
         
@@ -43,7 +37,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
     // MARK: TextView Font Style
     func placeholderTextInTextView() {
         
-        self.textView.text = self.CTA
+        self.textView.text = CTA
         self.textView.textColor = UIColor.lightGrayColor()
     }
     
@@ -90,7 +84,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
     func textViewDidBeginEditing(textView: UITextView) {
         
         self.textView.textColor = UIColor.darkGrayColor()
-        if self.textView.text == self.CTA {
+        if self.textView.text == CTA {
             
             self.textView.text = ""
         }
@@ -132,12 +126,10 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
     
     @IBAction func addBtnPressed(sender: UIButton) {
         
-        if let note = self.textView.text where self.textView.text != self.CTA && self.textView.text != "" {
-            
-            let app = UIApplication.sharedApplication().delegate as! AppDelegate
-            let context = app.managedObjectContext
-            let entity = NSEntityDescription.entityForName("Dump", inManagedObjectContext: context)!
-            let dump = Dump(entity: entity, insertIntoManagedObjectContext: context)
+        if let note = self.textView.text where self.textView.text != CTA && self.textView.text != "" {
+
+            let entity = NSEntityDescription.entityForName("Dump", inManagedObjectContext: CONTEXT)!
+            let dump = Dump(entity: entity, insertIntoManagedObjectContext: CONTEXT)
     
             if let title = self.titleField.text where self.titleField.text != "" {
                 
@@ -163,24 +155,24 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
             
             dump.note = note
             dump.date = NSDate()
-            print(dump.title!)
-            print(dump.note!)
-            print(dump.date!)
             
-            context.insertObject(dump)
+            CONTEXT.insertObject(dump)
             
-            do {
-                
-                try context.save()
-                self.savedLabel.alpha = 1.0
-                UIView.animateWithDuration(2.5, animations: { () -> Void in
-                    self.savedLabel.alpha = 0
-                })
-                print("context was saved!")
-            } catch {
-                
-                print("Could not save dump")
-            }
+            SAVE()
+//            do {
+//                
+//                try CONTEXT.save()
+//
+//                print("context was saved!")
+//            } catch {
+//                
+//                print("Could not save dump")
+//            }
+            
+            self.savedLabel.alpha = 1.0
+            UIView.animateWithDuration(2.5, animations: { () -> Void in
+                self.savedLabel.alpha = 0
+            })
             
             self.titleField.text = ""
             self.textView.text = ""

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class DumpVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+class DumpVC: VCCommons, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var dumpTitle: UILabel!
     @IBOutlet weak var dumpNote: UILabel!
@@ -24,10 +24,7 @@ class DumpVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     var editModeEnabled = false
     
     // MARK: General View Setup
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        
-        return UIStatusBarStyle.LightContent
-    }
+
     
     override func viewDidLoad() {
         
@@ -54,6 +51,7 @@ class DumpVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
             self.editSaveBtnText.setTitle("Edit", forState: UIControlState.Normal)
             self.backCancelBtnText.setTitle("Back", forState: UIControlState.Normal)
             self.view.endEditing(true)
+            self.editNoteBtmConstraint.constant = 8
             self.editModeEnabled = false
         } else {
             
@@ -110,9 +108,6 @@ class DumpVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
             self.dumpTitle.text = self.editableDumpTitle.text
             self.dumpNote.text = self.editableDumpNote.text
             
-            let app = UIApplication.sharedApplication().delegate as! AppDelegate
-            let context = app.managedObjectContext
-            
             if self.selectedDump != nil {
                 
                 self.selectedDump?.title = self.editableDumpTitle.text
@@ -120,15 +115,7 @@ class DumpVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
                 self.selectedDump?.date = NSDate()
             }
             
-            do {
-                
-                try context.save()
-                print("context was saved!")
-            } catch {
-                
-                print("Could not save dump")
-            }
-            
+            SAVE()
             return
         }
         

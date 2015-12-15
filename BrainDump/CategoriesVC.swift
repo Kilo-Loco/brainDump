@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CategoriesVC: VCCommons, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -17,11 +17,6 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     var deselectedRow: NSIndexPath?
     
     // MARK: General View Setup
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        
-        return UIStatusBarStyle.LightContent
-    }
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -31,7 +26,7 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         
         if self.deselectedRow != nil {
             
-            let delay = 0.6 * Double(NSEC_PER_SEC)
+            let delay = 0.5 * Double(NSEC_PER_SEC)
             let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
             
             dispatch_after(time, dispatch_get_main_queue(), {
@@ -39,16 +34,13 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
             })
         }
     }
-    
-    
-    
+
     func fetchAndSetResult() {
-        let app = UIApplication.sharedApplication().delegate as! AppDelegate
-        let context = app.managedObjectContext
+        
         let fetchRequest = NSFetchRequest(entityName: "Dump")
         
         do {
-            let results = try context.executeFetchRequest(fetchRequest)
+            let results = try CONTEXT.executeFetchRequest(fetchRequest)
             self.dumps = results as! [Dump]
         } catch let err as NSError {
             print(err.debugDescription)
@@ -95,37 +87,16 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         performSegueWithIdentifier("CategoriesToDump", sender: self)
     }
     
-    func removeAndSave(context: NSManagedObjectContext) {
-        
-        do {
-            try context.save()
-            print("successfully removed)")
-        } catch {
-            print("could not remove")
-        }
-    }
-    
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
         if editingStyle == UITableViewCellEditingStyle.Delete {
-            
-            let app = UIApplication.sharedApplication().delegate as! AppDelegate
-            let context = app.managedObjectContext
 
-            print(self.dumps[indexPath.row] as NSManagedObject)
-            context.deleteObject(self.dumps[indexPath.row] as NSManagedObject)
+            CONTEXT.deleteObject(self.dumps[indexPath.row] as NSManagedObject)
             
-            if self.dumps[indexPath.row] == self.dumps.last {
-                
-                self.dumps.removeLast()
-                self.removeAndSave(context)
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
-            } else {
-                
-                self.dumps.removeAtIndex(indexPath.row)
-                self.removeAndSave(context)
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-            }
+            self.dumps.removeAtIndex(indexPath.row)
+            SAVE()
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        
         }
     }
     
