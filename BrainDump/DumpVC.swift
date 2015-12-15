@@ -14,6 +14,7 @@ class DumpVC: VCCommons, UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var dumpTitle: UILabel!
     @IBOutlet weak var dumpNote: UILabel!
     @IBOutlet weak var editableDumpTitle: UITextField!
+    @IBOutlet weak var editableTitleTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var editableDumpNote: UITextView!
     @IBOutlet weak var editSaveBtnText: UIButton!
     @IBOutlet weak var editNoteBtmConstraint: NSLayoutConstraint!
@@ -24,7 +25,6 @@ class DumpVC: VCCommons, UITextFieldDelegate, UITextViewDelegate {
     var editModeEnabled = false
     
     // MARK: General View Setup
-
     
     override func viewDidLoad() {
         
@@ -66,6 +66,30 @@ class DumpVC: VCCommons, UITextFieldDelegate, UITextViewDelegate {
         }
     }
     
+    func resetEditNoteBtmConstraint() {
+        
+        self.editNoteBtmConstraint.constant = 8
+        self.editableTitleTopConstraint.constant = 8
+        UIView.animateWithDuration(0.25) { () -> Void in
+            self.view.layoutIfNeeded()
+        }
+    }
+
+    func orientationChange() {
+        
+        if UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) {
+            
+            self.editableDumpTitle.hidden = true
+            self.editableTitleTopConstraint.constant = -40
+        } else {
+            
+            self.editableDumpTitle.hidden = false
+            self.editableTitleTopConstraint.constant = 8
+        }
+    }
+    
+    // MARK: Text Editing
+    
     func keyboardWillShow(sender: NSNotification) {
         
         if let userInfo = sender.userInfo {
@@ -78,20 +102,25 @@ class DumpVC: VCCommons, UITextFieldDelegate, UITextViewDelegate {
         }
     }
     
-    func resetEditNoteBtmConstraint() {
+    func textViewDidBeginEditing(textView: UITextView) {
         
-        self.editNoteBtmConstraint.constant = 8
-        UIView.animateWithDuration(0.25) { () -> Void in
-            self.view.layoutIfNeeded()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationChange", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        
+        if UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) {
+            
+            self.editableDumpTitle.hidden = true
+            self.editableTitleTopConstraint.constant = -40
         }
     }
     
     func textViewDidEndEditing(textView: UITextView) {
         
         self.resetEditNoteBtmConstraint()
+        
     }
     
     // MARK: Button Functionality
+    
     @IBAction func backToCategoriesVC(sender: UIButton) {
         if self.editModeEnabled == false {
             performSegueWithIdentifier("DumpToCategories", sender: nil)
@@ -125,6 +154,7 @@ class DumpVC: VCCommons, UITextFieldDelegate, UITextViewDelegate {
     }
     
     // MARK: Navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         let categoriesVC = segue.destinationViewController as? CategoriesVC

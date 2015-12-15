@@ -1015,6 +1015,7 @@
                         <outlet property="editSaveBtnText" destination="GOx-J2-Sn3" id="h1w-cR-zVA"/>
                         <outlet property="editableDumpNote" destination="c5S-8V-vqX" id="Cvl-e0-k1O"/>
                         <outlet property="editableDumpTitle" destination="vLM-2a-2PH" id="lkE-ns-IUT"/>
+                        <outlet property="editableTitleTopConstraint" destination="zZf-xl-TvH" id="zN3-EV-sYM"/>
                         <segue destination="WZQ-H8-FOk" kind="presentation" identifier="DumpToCategories" modalTransitionStyle="crossDissolve" id="Jp9-CG-JdZ"/>
                     </connections>
                 </viewController>

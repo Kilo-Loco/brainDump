@@ -35,6 +35,7 @@ class ViewController: VCCommons, UITextViewDelegate, UITextFieldDelegate {
     }
     
     // MARK: TextView Font Style
+    
     func placeholderTextInTextView() {
         
         self.textView.text = CTA
@@ -63,9 +64,7 @@ class ViewController: VCCommons, UITextViewDelegate, UITextFieldDelegate {
             
             self.titleField.hidden = true
             self.titleFieldTopConstraint.constant = -40
-        }
-        
-        if UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation) {
+        } else {
             
             self.titleField.hidden = false
             self.titleFieldTopConstraint.constant = 0
@@ -99,7 +98,6 @@ class ViewController: VCCommons, UITextViewDelegate, UITextFieldDelegate {
         
         self.view.layoutIfNeeded()
     }
-
     
     func textViewDidEndEditing(textView: UITextView) {
         
@@ -119,6 +117,7 @@ class ViewController: VCCommons, UITextViewDelegate, UITextFieldDelegate {
     }
     
     // MARK: Button Functionality
+    
     @IBAction func hideButton(sender: UIButton) {
         
         self.view.endEditing(true)

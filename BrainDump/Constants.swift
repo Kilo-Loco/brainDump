@@ -24,14 +24,16 @@ func SAVE() {
     }
 }
 
-//func KEYBOARD_WILL_SHOW(notif: NSNotification, var btmConstraint: CGFloat, margin: Int, view: UIView) {
+//func KEYBOARD_WILL_SHOW(notif: NSNotification, btmConstraint: CGFloat, margin: Int, view: UIView) {
 //    
 //    if let userInfo = notif.userInfo {
 //        if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size.height {
-//            btmConstraint = (keyboardHeight + CGFloat(margin))
+//            var constraint = btmConstraint
+//            constraint = (keyboardHeight + CGFloat(margin))
 //            UIView.animateWithDuration(0.25, animations: { () -> Void in
 //                view.layoutIfNeeded()
 //            })
 //        }
 //    }
 //}
+
