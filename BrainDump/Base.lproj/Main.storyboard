@@ -705,10 +705,11 @@
                                 <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69x-4U-xeg">
-                                        <rect key="frame" x="8" y="8" width="42" height="28"/>
+                                        <rect key="frame" x="8" y="8" width="60" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="Gih-jk-EbE"/>
                                             <constraint firstAttribute="width" constant="49" id="Iyc-Tj-AFi"/>
+                                            <constraint firstAttribute="width" constant="60" id="R0U-xm-uNg"/>
                                             <constraint firstAttribute="width" constant="49" id="ggt-qP-1ye"/>
                                             <constraint firstAttribute="height" constant="28" id="ucX-aD-3Mv"/>
                                             <constraint firstAttribute="width" constant="30" id="vT3-cz-eL5"/>
@@ -725,14 +726,14 @@
                                         </variation>
                                         <variation key="heightClass=compact">
                                             <mask key="constraints">
-                                                <include reference="ggt-qP-1ye"/>
+                                                <exclude reference="ggt-qP-1ye"/>
                                                 <exclude reference="ucX-aD-3Mv"/>
                                                 <exclude reference="vT3-cz-eL5"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular">
                                             <mask key="constraints">
-                                                <include reference="Iyc-Tj-AFi"/>
+                                                <exclude reference="Iyc-Tj-AFi"/>
                                                 <exclude reference="ucX-aD-3Mv"/>
                                                 <exclude reference="vT3-cz-eL5"/>
                                             </mask>
@@ -1007,6 +1008,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="backCancelBtnText" destination="69x-4U-xeg" id="o1Z-lI-Zhj"/>
                         <outlet property="dumpNote" destination="sUG-w2-GNK" id="JkU-OJ-CxW"/>
                         <outlet property="dumpTitle" destination="yWI-Qg-KB1" id="c27-nh-ENj"/>
                         <outlet property="editNoteBtmConstraint" destination="CPh-bG-8oF" id="C0E-03-818"/>
@@ -1027,6 +1029,6 @@
         <image name="settingsIcon" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kcm-Bx-t3B"/>
+        <segue reference="Jp9-CG-JdZ"/>
     </inferredMetricsTieBreakers>
 </document>
