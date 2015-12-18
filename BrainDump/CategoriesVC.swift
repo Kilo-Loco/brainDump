@@ -26,7 +26,7 @@ class CategoriesVC: VCCommons, UITableViewDataSource, UITableViewDelegate {
         
         if self.deselectedRow != nil {
             
-            let delay = 0.5 * Double(NSEC_PER_SEC)
+            let delay = 0.6 * Double(NSEC_PER_SEC)
             let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
             
             dispatch_after(time, dispatch_get_main_queue(), {

@@ -12,7 +12,7 @@ import CoreData
 class DumpVC: VCCommons, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var dumpTitle: UILabel!
-    @IBOutlet weak var dumpNote: UILabel!
+    @IBOutlet weak var dumpNote: SelectableLabel!
     @IBOutlet weak var editableDumpTitle: UITextField!
     @IBOutlet weak var editableTitleTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var editableDumpNote: UITextView!
