@@ -24,15 +24,7 @@ class CategoriesVC: VCCommons, UITableViewDataSource, UITableViewDelegate {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        if self.deselectedRow != nil {
-            
-            let delay = 0.6 * Double(NSEC_PER_SEC)
-            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-            
-            dispatch_after(time, dispatch_get_main_queue(), {
-                self.tableView.scrollToRowAtIndexPath(self.deselectedRow!, atScrollPosition: UITableViewScrollPosition.Middle, animated: false)
-            })
-        }
+
     }
 
     func fetchAndSetResult() {
@@ -49,7 +41,15 @@ class CategoriesVC: VCCommons, UITableViewDataSource, UITableViewDelegate {
     
     override func viewDidAppear(animated: Bool) {
         self.fetchAndSetResult()
-        
+        if self.deselectedRow != nil {
+            
+            let delay = 0.01 * Double(NSEC_PER_SEC)
+            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            
+            dispatch_after(time, dispatch_get_main_queue(), {
+                self.tableView.scrollToRowAtIndexPath(self.deselectedRow!, atScrollPosition: UITableViewScrollPosition.Middle, animated: false)
+            })
+        }
         self.tableView.reloadData()
     }
     
