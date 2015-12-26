@@ -44,5 +44,16 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeCompose</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Compose Dump</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>Compose</string>
+		</dict>
+	</array>
 </dict>
 </plist>

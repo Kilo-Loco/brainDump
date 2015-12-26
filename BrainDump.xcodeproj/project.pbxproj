@@ -324,7 +324,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kiloloco.BrainDump;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c6482b62-a27c-4328-a34e-a765be1bdf87";
+				PROVISIONING_PROFILE = "39d79411-9783-4277-9f7b-007f38bf8c57";
 			};
 			name = Debug;
 		};
@@ -338,7 +338,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kiloloco.BrainDump;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c6482b62-a27c-4328-a34e-a765be1bdf87";
+				PROVISIONING_PROFILE = "39d79411-9783-4277-9f7b-007f38bf8c57";
 			};
 			name = Release;
 		};

@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BrainDump" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Compose" id="BYZ-38-t0r" customClass="ViewController" customModule="BrainDump" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -296,7 +296,7 @@
         <!--CategoriesVC-->
         <scene sceneID="CIY-XS-b9M">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="WZQ-H8-FOk" customClass="CategoriesVC" customModule="BrainDump" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Categories" automaticallyAdjustsScrollViewInsets="NO" id="WZQ-H8-FOk" customClass="CategoriesVC" customModule="BrainDump" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="r6J-Mh-aNw"/>
                         <viewControllerLayoutGuide type="bottom" id="Nm1-9D-JVm"/>
@@ -844,6 +844,18 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Editable Title Here" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vLM-2a-2PH">
+                                        <rect key="frame" x="20" y="74" width="560" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="SBa-zO-qDf"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                        <variation key="heightClass=compact" ambiguous="YES" misplaced="YES">
+                                            <rect key="frame" x="20" y="8" width="560" height="40"/>
+                                        </variation>
+                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="sUG-w2-GNK" firstAttribute="top" secondItem="FCI-kY-bCR" secondAttribute="top" constant="7" id="CoH-Xd-C8M"/>
@@ -860,6 +872,9 @@
                                     <constraint firstItem="sUG-w2-GNK" firstAttribute="leading" secondItem="FCI-kY-bCR" secondAttribute="leading" constant="20" id="iWw-aj-tAR"/>
                                 </constraints>
                                 <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="vLM-2a-2PH"/>
+                                    </mask>
                                     <mask key="constraints">
                                         <exclude reference="CoH-Xd-C8M"/>
                                         <exclude reference="F81-uf-5QU"/>
@@ -870,6 +885,9 @@
                                 </variation>
                                 <variation key="heightClass=compact" misplaced="YES">
                                     <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                    <mask key="subviews">
+                                        <include reference="vLM-2a-2PH"/>
+                                    </mask>
                                     <mask key="constraints">
                                         <include reference="CoH-Xd-C8M"/>
                                         <include reference="F81-uf-5QU"/>
@@ -904,16 +922,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Editable Title Here" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vLM-2a-2PH">
-                                <rect key="frame" x="20" y="74" width="560" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="SBa-zO-qDf"/>
-                                </constraints>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                            </textField>
-                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Editable note here." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c5S-8V-vqX">
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Editable note here." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c5S-8V-vqX">
                                 <rect key="frame" x="20" y="122" width="560" height="470"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -927,7 +936,7 @@
                                         <exclude reference="4FM-Lc-wso"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=compact" misplaced="YES">
+                                <variation key="heightClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="20" y="120" width="560" height="472"/>
                                     <mask key="constraints">
                                         <include reference="4FM-Lc-wso"/>
@@ -937,8 +946,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="c5S-8V-vqX" firstAttribute="leading" secondItem="vLM-2a-2PH" secondAttribute="leading" id="12A-rk-aoD"/>
-                            <constraint firstItem="c5S-8V-vqX" firstAttribute="trailing" secondItem="vLM-2a-2PH" secondAttribute="trailing" id="1Ul-ch-ghM"/>
                             <constraint firstItem="Ujg-i0-oG0" firstAttribute="top" secondItem="zOc-pU-Yri" secondAttribute="bottom" constant="2" id="2JZ-SS-zM5">
                                 <variation key="heightClass=compact" constant="0.0"/>
                             </constraint>
@@ -951,10 +958,8 @@
                             </constraint>
                             <constraint firstItem="Ig5-o9-ALh" firstAttribute="top" secondItem="c5S-8V-vqX" secondAttribute="bottom" constant="8" id="GkU-Q5-bBI"/>
                             <constraint firstAttribute="trailing" secondItem="Ujg-i0-oG0" secondAttribute="trailing" id="Gzy-qJ-crq"/>
-                            <constraint firstItem="c5S-8V-vqX" firstAttribute="top" secondItem="vLM-2a-2PH" secondAttribute="bottom" constant="8" id="HJl-5d-aHP"/>
                             <constraint firstAttribute="trailing" secondItem="Zkr-pR-aP5" secondAttribute="trailing" id="J7I-Ma-TiJ"/>
                             <constraint firstItem="FCI-kY-bCR" firstAttribute="top" secondItem="Ujg-i0-oG0" secondAttribute="bottom" id="Qc8-at-5PG"/>
-                            <constraint firstItem="vLM-2a-2PH" firstAttribute="leading" secondItem="HSk-Dz-X6C" secondAttribute="leadingMargin" id="Sly-xb-t7h"/>
                             <constraint firstItem="FCI-kY-bCR" firstAttribute="trailing" secondItem="Ujg-i0-oG0" secondAttribute="trailing" id="Wfb-dW-2PH"/>
                             <constraint firstItem="FCI-kY-bCR" firstAttribute="trailing" secondItem="Ujg-i0-oG0" secondAttribute="trailing" id="Z6p-Jr-din"/>
                             <constraint firstAttribute="trailing" secondItem="Ujg-i0-oG0" secondAttribute="trailing" id="aEU-Gj-nSp"/>
@@ -963,12 +968,9 @@
                             <constraint firstAttribute="bottom" secondItem="FCI-kY-bCR" secondAttribute="bottom" id="fFa-gg-Ryt"/>
                             <constraint firstItem="Zkr-pR-aP5" firstAttribute="top" secondItem="HSk-Dz-X6C" secondAttribute="top" id="n0k-w6-cM7"/>
                             <constraint firstItem="FCI-kY-bCR" firstAttribute="leading" secondItem="Ujg-i0-oG0" secondAttribute="leading" id="oNg-ra-KN6"/>
-                            <constraint firstItem="vLM-2a-2PH" firstAttribute="trailing" secondItem="HSk-Dz-X6C" secondAttribute="trailingMargin" id="qLk-Mo-edb"/>
                             <constraint firstItem="FCI-kY-bCR" firstAttribute="bottom" secondItem="Ig5-o9-ALh" secondAttribute="top" id="qyF-J7-cgZ"/>
                             <constraint firstItem="Zkr-pR-aP5" firstAttribute="leading" secondItem="HSk-Dz-X6C" secondAttribute="leading" id="r9W-my-Sxy"/>
                             <constraint firstItem="FCI-kY-bCR" firstAttribute="leading" secondItem="Ujg-i0-oG0" secondAttribute="leading" id="rin-CJ-7lm"/>
-                            <constraint firstItem="c5S-8V-vqX" firstAttribute="top" secondItem="vLM-2a-2PH" secondAttribute="bottom" constant="8" symbolic="YES" id="sYk-fH-bdh"/>
-                            <constraint firstItem="vLM-2a-2PH" firstAttribute="top" secondItem="Ujg-i0-oG0" secondAttribute="bottom" constant="8" id="zZf-xl-TvH"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -985,9 +987,6 @@
                                 <exclude reference="dqI-W1-Uun"/>
                                 <exclude reference="fFa-gg-Ryt"/>
                                 <exclude reference="oNg-ra-KN6"/>
-                                <exclude reference="12A-rk-aoD"/>
-                                <exclude reference="1Ul-ch-ghM"/>
-                                <exclude reference="sYk-fH-bdh"/>
                                 <exclude reference="GkU-Q5-bBI"/>
                             </mask>
                         </variation>
@@ -1004,12 +1003,8 @@
                                 <include reference="oNg-ra-KN6"/>
                                 <exclude reference="qyF-J7-cgZ"/>
                                 <exclude reference="rin-CJ-7lm"/>
-                                <include reference="12A-rk-aoD"/>
-                                <include reference="1Ul-ch-ghM"/>
                                 <exclude reference="6vq-wC-aR4"/>
-                                <exclude reference="HJl-5d-aHP"/>
                                 <exclude reference="ct4-gn-kzN"/>
-                                <include reference="sYk-fH-bdh"/>
                                 <include reference="CPh-bG-8oF"/>
                                 <include reference="GkU-Q5-bBI"/>
                             </mask>
@@ -1034,7 +1029,6 @@
                         <outlet property="editSaveBtnText" destination="GOx-J2-Sn3" id="h1w-cR-zVA"/>
                         <outlet property="editableDumpNote" destination="c5S-8V-vqX" id="Cvl-e0-k1O"/>
                         <outlet property="editableDumpTitle" destination="vLM-2a-2PH" id="lkE-ns-IUT"/>
-                        <outlet property="editableTitleTopConstraint" destination="zZf-xl-TvH" id="zN3-EV-sYM"/>
                         <segue destination="WZQ-H8-FOk" kind="presentation" identifier="DumpToCategories" modalTransitionStyle="crossDissolve" id="Jp9-CG-JdZ"/>
                     </connections>
                 </viewController>
@@ -1049,6 +1043,6 @@
         <image name="settingsIcon" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Jp9-CG-JdZ"/>
+        <segue reference="Kcm-Bx-t3B"/>
     </inferredMetricsTieBreakers>
 </document>
