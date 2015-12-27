@@ -66,9 +66,13 @@
                                 <rect key="frame" x="0.0" y="564" width="600" height="36"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Mo-Tj-rne">
-                                        <rect key="frame" x="562" y="-2" width="30" height="30"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="42"/>
-                                        <state key="normal" title="+">
+                                        <rect key="frame" x="537" y="4" width="55" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="55" id="O2t-eU-XL1"/>
+                                            <constraint firstAttribute="height" constant="24" id="nHX-T1-pWh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                        <state key="normal" title="Dump">
                                             <color key="titleColor" red="1" green="0.50196078431372548" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -109,7 +113,8 @@
                                 <color key="backgroundColor" red="0.81568627450980391" green="0.83529411764705885" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="3Mo-Tj-rne" firstAttribute="trailing" secondItem="I9H-QP-Atv" secondAttribute="trailingMargin" id="21e-LW-sb9"/>
-                                    <constraint firstItem="3Mo-Tj-rne" firstAttribute="top" secondItem="I9H-QP-Atv" secondAttribute="top" constant="-2" id="2lM-us-TSR"/>
+                                    <constraint firstItem="3Mo-Tj-rne" firstAttribute="top" secondItem="I9H-QP-Atv" secondAttribute="top" id="2lM-us-TSR"/>
+                                    <constraint firstItem="3Mo-Tj-rne" firstAttribute="top" secondItem="I9H-QP-Atv" secondAttribute="top" constant="8" id="7AA-0e-ZT3"/>
                                     <constraint firstItem="3Mo-Tj-rne" firstAttribute="bottom" secondItem="I9H-QP-Atv" secondAttribute="bottomMargin" id="Cek-sT-qyb"/>
                                     <constraint firstItem="P6d-GF-ghj" firstAttribute="centerX" secondItem="I9H-QP-Atv" secondAttribute="centerX" id="IlQ-u7-uuy"/>
                                     <constraint firstItem="P6d-GF-ghj" firstAttribute="centerY" secondItem="I9H-QP-Atv" secondAttribute="centerY" id="Rtj-my-TOL"/>
@@ -117,6 +122,12 @@
                                     <constraint firstItem="gsU-HV-xwp" firstAttribute="leading" secondItem="I9H-QP-Atv" secondAttribute="leading" constant="8" id="ozG-5T-2XH"/>
                                     <constraint firstItem="gsU-HV-xwp" firstAttribute="centerY" secondItem="I9H-QP-Atv" secondAttribute="centerY" id="tEr-BM-zCO"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2lM-us-TSR"/>
+                                        <exclude reference="7AA-0e-ZT3"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This is test text." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bi7-am-7mW">
                                 <rect key="frame" x="20" y="107" width="560" height="457"/>
