@@ -9,10 +9,25 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>BrainDumpWatch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Notification - BrainDumpWatch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>7C2074981C08274E00BF9145</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7C8392771C2FD07200A7EDE0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
