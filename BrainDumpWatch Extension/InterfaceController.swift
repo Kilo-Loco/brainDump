@@ -8,14 +8,50 @@
 
 import WatchKit
 import Foundation
+import CoreData
 
 
 class InterfaceController: WKInterfaceController {
+    
+    @IBOutlet var dumpTable: WKInterfaceTable!
+    
+    var watchDumps = [Dump]()
+    
 
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
-        // Configure interface objects here.
+//        self.dumpTable.setNumberOfRows(3, withRowType: "tableRowController")
+//        
+//        let row = self.dumpTable.rowControllerAtIndex(0) as? tableRowController
+//        
+//        row?.dumpNoteLbl.setText("dump note info")
+        
+    }
+    
+    func fetchAndSetResult() {
+        
+        let fetchRequest = NSFetchRequest(entityName: "Dump")
+        
+        do {
+            let results = try CONTEXT.executeFetchRequest(fetchRequest)
+            self.watchDumps = results as! [Dump]
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+    }
+    
+    override func didAppear() {
+        self.fetchAndSetResult()
+        //suppose to reload data?
+        
+        self.dumpTable.setNumberOfRows(self.watchDumps.co, withRowType: "tableRowController")
+        
+        //let row = self.dumpTable.rowControllerAtIndex(0) as? tableRowController
+        
+        let row = self.dumpTable.rowControllerAtIndex(0) as? tableRowController
+        
+        row?.dumpNoteLbl.setText("dump note info")
     }
 
     override func willActivate() {
@@ -27,5 +63,10 @@ class InterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
+    
+    @IBAction func composeDumpBtnPressed() {
+        
+    }
+    
 
 }

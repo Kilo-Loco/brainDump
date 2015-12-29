@@ -26,6 +26,10 @@
 		7C8392901C2FD07300A7EDE0 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C83928F1C2FD07300A7EDE0 /* NotificationController.swift */; };
 		7C8392921C2FD07300A7EDE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C8392911C2FD07300A7EDE0 /* Assets.xcassets */; };
 		7C8392961C2FD07300A7EDE0 /* BrainDumpWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 7C8392781C2FD07200A7EDE0 /* BrainDumpWatch.app */; };
+		7C8392C71C326CC100A7EDE0 /* tableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8392C51C32562E00A7EDE0 /* tableRowController.swift */; };
+		7C8392C81C326F0C00A7EDE0 /* Dump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6814131C0AA28300070E2E /* Dump.swift */; };
+		7C8392C91C3270BD00A7EDE0 /* Dump+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6814121C0AA28300070E2E /* Dump+CoreDataProperties.swift */; };
+		7C8392CA1C32714E00A7EDE0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0D542A1C1FDECC0039FBEA /* Constants.swift */; };
 		7CB22EB91C0D6BCD000CECAC /* DumpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB22EB81C0D6BCD000CECAC /* DumpCell.swift */; };
 		7CB22EBD1C100660000CECAC /* DumpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB22EBC1C100660000CECAC /* DumpVC.swift */; };
 		7CD78C1D1C23F3A300B05EAC /* SelectableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD78C1C1C23F3A300B05EAC /* SelectableLabel.swift */; };
@@ -98,6 +102,7 @@
 		7C83928F1C2FD07300A7EDE0 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		7C8392911C2FD07300A7EDE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C8392931C2FD07300A7EDE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C8392C51C32562E00A7EDE0 /* tableRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tableRowController.swift; path = "BrainDumpWatch Extension/tableRowController.swift"; sourceTree = SOURCE_ROOT; };
 		7CB22EB81C0D6BCD000CECAC /* DumpCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DumpCell.swift; sourceTree = "<group>"; };
 		7CB22EBC1C100660000CECAC /* DumpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DumpVC.swift; sourceTree = "<group>"; };
 		7CD78C1C1C23F3A300B05EAC /* SelectableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableLabel.swift; sourceTree = "<group>"; };
@@ -209,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				7C83928B1C2FD07300A7EDE0 /* InterfaceController.swift */,
+				7C8392C51C32562E00A7EDE0 /* tableRowController.swift */,
 				7C83928D1C2FD07300A7EDE0 /* ExtensionDelegate.swift */,
 				7C83928F1C2FD07300A7EDE0 /* NotificationController.swift */,
 				7C8392911C2FD07300A7EDE0 /* Assets.xcassets */,
@@ -378,9 +384,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C8392C81C326F0C00A7EDE0 /* Dump.swift in Sources */,
 				7C8392901C2FD07300A7EDE0 /* NotificationController.swift in Sources */,
 				7C83928E1C2FD07300A7EDE0 /* ExtensionDelegate.swift in Sources */,
+				7C8392C91C3270BD00A7EDE0 /* Dump+CoreDataProperties.swift in Sources */,
+				7C8392CA1C32714E00A7EDE0 /* Constants.swift in Sources */,
 				7C83928C1C2FD07300A7EDE0 /* InterfaceController.swift in Sources */,
+				7C8392C71C326CC100A7EDE0 /* tableRowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +640,7 @@
 				7C8392991C2FD07300A7EDE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7C83929B1C2FD07300A7EDE0 /* Build configuration list for PBXNativeTarget "BrainDumpWatch" */ = {
 			isa = XCConfigurationList;
@@ -638,6 +649,7 @@
 				7C83929D1C2FD07300A7EDE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
