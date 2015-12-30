@@ -29,7 +29,6 @@
 		7C8392C71C326CC100A7EDE0 /* tableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8392C51C32562E00A7EDE0 /* tableRowController.swift */; };
 		7C8392C81C326F0C00A7EDE0 /* Dump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6814131C0AA28300070E2E /* Dump.swift */; };
 		7C8392C91C3270BD00A7EDE0 /* Dump+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6814121C0AA28300070E2E /* Dump+CoreDataProperties.swift */; };
-		7C8392CA1C32714E00A7EDE0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0D542A1C1FDECC0039FBEA /* Constants.swift */; };
 		7CB22EB91C0D6BCD000CECAC /* DumpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB22EB81C0D6BCD000CECAC /* DumpCell.swift */; };
 		7CB22EBD1C100660000CECAC /* DumpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB22EBC1C100660000CECAC /* DumpVC.swift */; };
 		7CD78C1D1C23F3A300B05EAC /* SelectableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD78C1C1C23F3A300B05EAC /* SelectableLabel.swift */; };
@@ -388,7 +387,6 @@
 				7C8392901C2FD07300A7EDE0 /* NotificationController.swift in Sources */,
 				7C83928E1C2FD07300A7EDE0 /* ExtensionDelegate.swift in Sources */,
 				7C8392C91C3270BD00A7EDE0 /* Dump+CoreDataProperties.swift in Sources */,
-				7C8392CA1C32714E00A7EDE0 /* Constants.swift in Sources */,
 				7C83928C1C2FD07300A7EDE0 /* InterfaceController.swift in Sources */,
 				7C8392C71C326CC100A7EDE0 /* tableRowController.swift in Sources */,
 			);

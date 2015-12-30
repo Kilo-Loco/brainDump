@@ -17,30 +17,7 @@
                                 <action selector="composeDumpBtnPressed" destination="AgC-eL-Hgc" id="Gj2-76-cA0"/>
                             </connections>
                         </button>
-                        <table alignment="left" id="RZV-O9-71p">
-                            <items>
-                                <tableRow identifier="tableRowController" id="7dR-y4-3qX" customClass="tableRowController" customModule="BrainDumpWatch_Extension">
-                                    <group key="rootItem" width="1" height="87.5" alignment="left" layout="vertical" id="oHx-ih-a0Z">
-                                        <items>
-                                            <label width="136" alignment="left" text="Dump Title" id="Q0s-I1-mbJ">
-                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
-                                            </label>
-                                            <label alignment="left" text="Dumps appear here" numberOfLines="0" id="TSp-5Q-D3s">
-                                                <fontDescription key="font" style="UICTFontTextStyleBody"/>
-                                            </label>
-                                            <label alignment="left" text="00/00/00" id="4bl-NE-0rc">
-                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                                            </label>
-                                        </items>
-                                    </group>
-                                    <connections>
-                                        <outlet property="dumpDateLbl" destination="4bl-NE-0rc" id="AyS-7c-3EP"/>
-                                        <outlet property="dumpNoteLbl" destination="TSp-5Q-D3s" id="Sce-GD-plr"/>
-                                        <outlet property="dumpTitleLbl" destination="Q0s-I1-mbJ" id="Lk4-qd-JGv"/>
-                                    </connections>
-                                </tableRow>
-                            </items>
-                        </table>
+                        <table alignment="left" id="RZV-O9-71p"/>
                     </items>
                     <connections>
                         <outlet property="dumpTable" destination="RZV-O9-71p" id="J2A-cs-CER"/>

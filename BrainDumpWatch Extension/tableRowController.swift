@@ -7,7 +7,6 @@
 //
 
 import WatchKit
-import CoreData
 
 class tableRowController: NSObject {
 
