@@ -17,11 +17,7 @@
                                 <action selector="composeDumpBtnPressed" destination="AgC-eL-Hgc" id="Gj2-76-cA0"/>
                             </connections>
                         </button>
-                        <table alignment="left" id="RZV-O9-71p"/>
                     </items>
-                    <connections>
-                        <outlet property="dumpTable" destination="RZV-O9-71p" id="J2A-cs-CER"/>
-                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>

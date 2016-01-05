@@ -9,17 +9,5 @@
 import WatchKit
 
 class tableRowController: NSObject {
-
-    @IBOutlet var dumpTitleLbl: WKInterfaceLabel!
-    @IBOutlet var dumpNoteLbl: WKInterfaceLabel!
-    @IBOutlet var dumpDateLbl: WKInterfaceLabel!
-    
-    func configureRow(dump: Dump) {
-        
-        self.dumpTitleLbl.setText(dump.title)
-        self.dumpNoteLbl.setText(dump.note)
-        self.dumpDateLbl.setText(NSDateFormatter.localizedStringFromDate(dump.date!, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.ShortStyle))
-    }
-    
     
 }
