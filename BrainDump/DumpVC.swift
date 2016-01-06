@@ -53,8 +53,10 @@ class DumpVC: VCCommons, UITextFieldDelegate, UITextViewDelegate {
             self.view.endEditing(true)
             self.editNoteBtmConstraint.constant = 8
             self.editModeEnabled = false
+            self.view.updateConstraintsIfNeeded()
             
-            //NSNotificationCenter.defaultCenter().removeObserver(self)
+            
+            NSNotificationCenter.defaultCenter().removeObserver(self)
         } else {
             
             self.view.backgroundColor = UIColor.lightGrayColor()
