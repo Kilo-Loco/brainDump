@@ -54,9 +54,11 @@ class DumpVC: VCCommons, UITextFieldDelegate, UITextViewDelegate {
             self.editNoteBtmConstraint.constant = 8
             self.editModeEnabled = false
             self.view.updateConstraintsIfNeeded()
+            print("meep")
             
             
-            NSNotificationCenter.defaultCenter().removeObserver(self)
+            //NSNotificationCenter.defaultCenter().removeObserver(self)
+            NSNotificationCenter.defaultCenter().removeObserver(self, name: UIDeviceOrientationDidChangeNotification, object: nil)
         } else {
             
             self.view.backgroundColor = UIColor.lightGrayColor()
