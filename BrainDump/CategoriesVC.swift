@@ -34,6 +34,7 @@ class CategoriesVC: VCCommons, UITableViewDataSource, UITableViewDelegate {
         do {
             let results = try CONTEXT.executeFetchRequest(fetchRequest)
             self.dumps = results as! [Dump]
+            self.dumps = self.dumps.reverse()
         } catch let err as NSError {
             print(err.debugDescription)
         }
