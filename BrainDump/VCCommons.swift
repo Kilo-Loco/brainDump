@@ -14,4 +14,8 @@ class VCCommons: UIViewController {
         
         return UIStatusBarStyle.LightContent
     }
+    
+    override func viewDidLoad() {
+        self.view.backgroundColor = UIColor(red: 48/255, green: 48/255, blue: 48/255, alpha: 1.0)
+    }
 }

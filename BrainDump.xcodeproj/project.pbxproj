@@ -79,6 +79,7 @@
 /* Begin PBXFileReference section */
 		7C0D542A1C1FDECC0039FBEA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7C0D542C1C1FDFB70039FBEA /* VCCommons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCCommons.swift; sourceTree = "<group>"; };
+		7C1D481D1C5B45B30082C026 /* BrainDumpWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "BrainDumpWatch Extension.entitlements"; sourceTree = "<group>"; };
 		7C2074991C08274E00BF9145 /* BrainDump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrainDump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C20749C1C08274E00BF9145 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C20749E1C08274E00BF9145 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +213,7 @@
 		7C8392881C2FD07300A7EDE0 /* BrainDumpWatch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				7C1D481D1C5B45B30082C026 /* BrainDumpWatch Extension.entitlements */,
 				7C83928B1C2FD07300A7EDE0 /* InterfaceController.swift */,
 				7C8392C51C32562E00A7EDE0 /* tableRowController.swift */,
 				7C83928D1C2FD07300A7EDE0 /* ExtensionDelegate.swift */,
@@ -307,6 +309,12 @@
 					};
 					7C8392831C2FD07300A7EDE0 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 5K99777NES;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -549,10 +557,13 @@
 		7C8392981C2FD07300A7EDE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "BrainDumpWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kiloloco.BrainDump.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -563,10 +574,13 @@
 		7C8392991C2FD07300A7EDE0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "BrainDumpWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kiloloco.BrainDump.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
