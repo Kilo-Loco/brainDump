@@ -112,7 +112,7 @@ class DumpVC: VCCommons, UITextFieldDelegate, UITextViewDelegate {
     
     func textViewDidBeginEditing(textView: UITextView) {
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationChange", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DumpVC.orientationChange), name: UIDeviceOrientationDidChangeNotification, object: nil)
         
         if UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) {
             

@@ -31,7 +31,7 @@ class ViewController: VCCommons, UITextViewDelegate, UITextFieldDelegate {
         self.hideBtnText.hidden = true
         self.savedLabel.alpha = 0
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardDidShowNotification, object: nil)
     }
     
     // MARK: TextView Font Style
@@ -88,7 +88,7 @@ class ViewController: VCCommons, UITextViewDelegate, UITextFieldDelegate {
             self.textView.text = ""
         }
     
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationChange", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.orientationChange), name: UIDeviceOrientationDidChangeNotification, object: nil)
         
         if UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation) {
             
